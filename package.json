@@ -1,0 +1,48 @@
+{
+  "name": "bulloak-formatter",
+  "displayName": "Bulloak Formatter",
+  "description": "Format .tree files into valid bulloak syntax on save",
+  "version": "0.0.1",
+  "publisher": "bulloak",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:tree"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "tree",
+        "extensions": [
+          ".tree"
+        ],
+        "aliases": [
+          "Tree",
+          "tree"
+        ]
+      }
+    ],
+    "configurationDefaults": {
+      "[tree]": {
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.18"
+  }
+}
